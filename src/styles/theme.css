@@ -1,0 +1,294 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  
+  /* Luxury Light Mode - Warm Ivory/Cream */
+  --background: #FAFAF8;
+  --foreground: #0A0A0A;
+  --card: #FFFFFF;
+  --card-foreground: #0A0A0A;
+  --popover: #FFFFFF;
+  --popover-foreground: #0A0A0A;
+  --primary: #0A0A0A;
+  --primary-foreground: #FAFAF8;
+  --secondary: #F5F5F3;
+  --secondary-foreground: #0A0A0A;
+  --muted: #E8E8E5;
+  --muted-foreground: #6B6B68;
+  --accent: #D4AF37;
+  --accent-foreground: #0A0A0A;
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: rgba(10, 10, 10, 0.08);
+  --input: transparent;
+  --input-background: #F5F5F3;
+  --switch-background: #cbced4;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: rgba(10, 10, 10, 0.2);
+  --radius: 0.125rem;
+  
+  /* Luxury Metallic Accents */
+  --gold: #D4AF37;
+  --platinum: #E5E4E2;
+  --chrome: #C9C9C9;
+  --neon-blue: #00D9FF;
+  --neon-violet: #A855F7;
+  
+  /* Spacing (Generous) */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 6rem;
+  --spacing-2xl: 8rem;
+  --spacing-3xl: 12rem;
+}
+
+.dark {
+  /* Deep Luxury Dark Mode - Rich Blacks */
+  --background: #0A0A0A;
+  --foreground: #FAFAF8;
+  --card: #121212;
+  --card-foreground: #FAFAF8;
+  --popover: #121212;
+  --popover-foreground: #FAFAF8;
+  --primary: #FAFAF8;
+  --primary-foreground: #0A0A0A;
+  --secondary: #1A1A1A;
+  --secondary-foreground: #FAFAF8;
+  --muted: #1A1A1A;
+  --muted-foreground: #A8A8A8;
+  --accent: #D4AF37;
+  --accent-foreground: #0A0A0A;
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.05);
+  --ring: rgba(255, 255, 255, 0.2);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  /* Custom Luxury Colors */
+  --color-gold: var(--gold);
+  --color-platinum: var(--platinum);
+  --color-chrome: var(--chrome);
+  --color-neon-blue: var(--neon-blue);
+  --color-neon-violet: var(--neon-violet);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Space Grotesk', 'Tajawal', -apple-system, sans-serif;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Subtle noise texture for luxury feel */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.015;
+    z-index: 1;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  /* Hide default cursor on desktop for custom cursor */
+  @media (min-width: 1024px) {
+    body {
+      cursor: none;
+    }
+    
+    a, button {
+      cursor: none;
+    }
+  }
+
+  /* RTL Support */
+  [dir="rtl"] {
+    font-family: 'Tajawal', 'Cairo', -apple-system, sans-serif;
+  }
+
+  [dir="ltr"] {
+    font-family: 'Space Grotesk', 'Syne', -apple-system, sans-serif;
+  }
+
+  html {
+    font-size: var(--font-size);
+    scroll-behavior: smooth;
+  }
+
+  /* Luxury Typography - Minimal default sizing (we'll control in components) */
+  h1 {
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  h3 {
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  h4 {
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  p {
+    line-height: 1.7;
+    letter-spacing: 0.01em;
+  }
+
+  /* Custom Scrollbar - Luxury Feel */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--muted);
+    border-radius: 4px;
+    transition: background 0.3s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+  }
+
+  /* Selection Color */
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-foreground);
+  }
+
+  /* Screen Reader Only */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+}
+
+/* Luxury Animation Utilities */
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+/* Luxury Gradient Backgrounds */
+.luxury-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--background) 0%,
+    var(--secondary) 100%
+  );
+}
+
+.metallic-shine {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 175, 55, 0.1),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
+
+/* Glass Morphism - Subtle */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dark .glass-effect {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
