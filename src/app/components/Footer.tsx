@@ -1,15 +1,49 @@
 import { motion } from 'motion/react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Mail, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { Mail, Linkedin, Instagram, Facebook, X, Youtube } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router';
+import logo from '@/assets/storm_logo.png';
 
 export function Footer() {
   const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/company/storm-apps/', label: 'LinkedIn' },
+    { icon: Instagram, href: 'https://www.instagram.com/stoormapps/', label: 'Instagram' },
+    { icon: Facebook, href: 'https://www.snapchat.com/@storm-apps', label: 'Twitter' },
+    // { icon: TikTok, href: 'https://www.tiktok.com/@stormapps', label: 'Twitter' },
+    { icon: X, href: 'https://www.snapchat.com/@storm-apps', label: 'Twitter' },
+
+    { icon: Youtube, href: 'https://www.youtube.com/@StormApps2030', label: 'Twitter' },
+  ];
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleLinkClick = (id: string) => {
+    if (id === 'projects_page') {
+      navigate('/projects');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    if (location.pathname !== '/') {
+      navigate(`/#${id}`);
+    } else {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  };
+
+  const quickLinks = [
+    { id: 'services', label: t('nav.services') },
+    { id: 'projects', label: t('nav.projects') },
+    { id: 'projects_page', label: t('nav.allProjects') },
+    { id: 'process', label: t('nav.process') },
+    { id: 'about', label: t('nav.about') },
   ];
 
   return (
@@ -40,20 +74,23 @@ export function Footer() {
               viewport={{ once: true }}
             >
               {/* Logo */}
-              <h3 className="text-3xl lg:text-4xl font-bold mb-4">
+              {/* <h3 className="text-3xl lg:text-4xl font-bold mb-4">
                 Storm
                 <span className="text-[var(--color-accent)] mx-2">⚡</span>
                 Apps
-              </h3>
-              
+              </h3> */}
+
+              <img src={logo} alt="Storm Apps" width={160} height={100} className="w-[160px] h-[100px] object-contain" />
+
+
               <p className="text-muted-foreground text-lg mb-8 max-w-md leading-relaxed">
                 {t('footer.tagline')}
               </p>
 
               {/* Contact */}
               <div className="space-y-4">
-                <a 
-                  href="mailto:hello@stormapps.io"
+                <a
+                  href="mailto:emad@stoormapps.com"
                   className="group inline-flex items-center gap-3 text-muted-foreground hover:text-[var(--color-accent)] transition-colors duration-300"
                 >
                   <Mail className="w-5 h-5" />
@@ -76,16 +113,13 @@ export function Footer() {
                 Quick Links
               </h4>
               <ul className="space-y-4">
-                {['Services', 'Projects', 'Process', 'About'].map((item) => (
-                  <li key={item}>
+                {quickLinks.map((item) => (
+                  <li key={item.id}>
                     <button
-                      onClick={() => {
-                        const element = document.getElementById(item.toLowerCase());
-                        element?.scrollIntoView({ behavior: 'smooth' });
-                      }}
-                      className="text-muted-foreground hover:text-[var(--color-accent)] transition-colors duration-300"
+                      onClick={() => handleLinkClick(item.id)}
+                      className="text-muted-foreground hover:text-[var(--color-accent)] transition-colors duration-300 text-left"
                     >
-                      {item}
+                      {item.label}
                     </button>
                   </li>
                 ))}
@@ -141,7 +175,7 @@ export function Footer() {
                       aria-label={social.label}
                     >
                       <Icon className="w-5 h-5 text-muted-foreground group-hover:text-[var(--color-accent)] transition-colors duration-300" />
-                      
+
                       {/* Hover Glow */}
                       <motion.div
                         className="absolute inset-0 rounded-full bg-[var(--color-accent)] opacity-0 group-hover:opacity-10 blur-lg transition-opacity duration-300"
@@ -166,7 +200,7 @@ export function Footer() {
             <p className="text-sm text-muted-foreground text-center md:text-left">
               © {currentYear} Storm Apps. {t('footer.rights')}.
             </p>
-            
+
             <motion.div
               className="flex items-center gap-2"
               animate={{

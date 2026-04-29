@@ -3,12 +3,18 @@ import { motion, AnimatePresence } from 'motion/react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useTheme } from '../contexts/ThemeContext';
 import { Sun, Moon, Menu, X } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router';
+import logo from '@/assets/storm_logo.png';
+
 
 export function Navigation() {
   const { language, setLanguage, t } = useLanguage();
   const { theme, toggleTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,17 +24,42 @@ export function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setMobileMenuOpen(false);
+  // Handle cross-page scrolling
+  useEffect(() => {
+    if (location.pathname === '/' && location.hash) {
+      const id = location.hash.replace('#', '');
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
+  }, [location]);
+
+  const handleNavClick = (id: string) => {
+    setMobileMenuOpen(false);
+    
+    if (id === 'projects_page') {
+      navigate('/projects');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    if (location.pathname !== '/') {
+      navigate(`/#${id}`);
+    } else {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
   };
 
   const navItems = [
     { id: 'services', label: t('nav.services') },
     { id: 'projects', label: t('nav.projects') },
+    { id: 'projects_page', label: t('nav.allProjects') },
     { id: 'process', label: t('nav.process') },
     { id: 'about', label: t('nav.about') },
   ];
@@ -47,12 +78,15 @@ export function Navigation() {
         <div className="flex items-center justify-between h-20 lg:h-24">
           {/* Logo */}
           <motion.button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            onClick={() => {
+              navigate('/');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
             className="relative group"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <h1 className="text-2xl lg:text-3xl font-bold tracking-tight relative">
+            {/* <h1 className="text-2xl lg:text-3xl font-bold tracking-tight relative">
               <span className="relative z-10">
                 Storm
                 <span className="text-[var(--color-accent)] mx-1">⚡</span>
@@ -62,7 +96,8 @@ export function Navigation() {
                 className="absolute inset-0 bg-[var(--color-accent)] opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-500"
                 initial={false}
               />
-            </h1>
+            </h1> */}
+            <img src={logo} alt="Storm Apps" width={180} height={180} className="w-[180px] h-[180px] object-contain" />
           </motion.button>
 
           {/* Desktop Navigation */}
@@ -70,7 +105,7 @@ export function Navigation() {
             {navItems.map((item, index) => (
               <motion.button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => handleNavClick(item.id)}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
@@ -125,7 +160,7 @@ export function Navigation() {
 
             {/* CTA Button */}
             <motion.button
-              onClick={() => scrollToSection('contact')}
+              onClick={() => handleNavClick('contact')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="hidden lg:block px-6 py-2.5 rounded-full bg-[var(--color-accent)] text-[var(--color-accent-foreground)] font-medium text-sm hover:shadow-lg hover:shadow-[var(--color-accent)]/20 transition-all duration-300"
@@ -163,7 +198,7 @@ export function Navigation() {
               {navItems.map((item) => (
                 <motion.button
                   key={item.id}
-                  onClick={() => scrollToSection(item.id)}
+                  onClick={() => handleNavClick(item.id)}
                   whileTap={{ scale: 0.98 }}
                   className="block w-full text-left py-3 px-4 rounded-lg hover:bg-secondary transition-colors duration-300"
                 >
@@ -171,7 +206,7 @@ export function Navigation() {
                 </motion.button>
               ))}
               <motion.button
-                onClick={() => scrollToSection('contact')}
+                onClick={() => handleNavClick('contact')}
                 whileTap={{ scale: 0.98 }}
                 className="block w-full py-3 px-4 rounded-lg bg-[var(--color-accent)] text-[var(--color-accent-foreground)] font-medium text-center"
               >

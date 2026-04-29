@@ -93,7 +93,7 @@ export function CTASection() {
                 className="flex flex-col sm:flex-row items-center justify-center gap-6"
               >
                 <motion.a
-                  href="mailto:hello@stormapps.io"
+                  href="mailto:emad@stoormapps.com"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="group relative px-12 py-5 rounded-full overflow-hidden inline-flex items-center gap-3"
@@ -124,12 +124,12 @@ export function CTASection() {
 
                 {/* Secondary Action - Email Direct */}
                 <motion.a
-                  href="mailto:hello@stormapps.io"
+                  href="mailto:emad@stoormapps.com"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="text-muted-foreground hover:text-[var(--color-accent)] transition-colors duration-300 font-medium"
                 >
-                  hello@stormapps.io
+                  emad@stoormapps.com
                 </motion.a>
               </motion.div>
 

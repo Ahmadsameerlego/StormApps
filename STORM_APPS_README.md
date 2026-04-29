@@ -19,7 +19,7 @@ An exclusive, high-end website for Storm Apps that positions the brand as an eli
 **Dark Mode (Default)**
 - Background: Deep black (#0A0A0A)
 - Foreground: Warm white (#FAFAF8)
-- Accent: Metallic gold (#D4AF37)
+- Accent: Metallic gold (#4b7894)
 - Highlights: Controlled neon blue (#00D9FF) and violet (#A855F7)
 
 **Light Mode**
@@ -200,7 +200,7 @@ Toggle between languages with the nav button.
 
 **Tagline**: "We craft digital storms"
 
-**Email**: hello@stormapps.io
+**Email**: emad@stoormapps.com
 
 ## 🔧 Technical Stack
 

@@ -2,7 +2,7 @@
 
 :root {
   --font-size: 16px;
-  
+
   /* Luxury Light Mode - Warm Ivory/Cream */
   --background: #FAFAF8;
   --foreground: #0A0A0A;
@@ -16,7 +16,7 @@
   --secondary-foreground: #0A0A0A;
   --muted: #E8E8E5;
   --muted-foreground: #6B6B68;
-  --accent: #D4AF37;
+  --accent: #4b7894;
   --accent-foreground: #0A0A0A;
   --destructive: #d4183d;
   --destructive-foreground: #ffffff;
@@ -28,14 +28,14 @@
   --font-weight-normal: 400;
   --ring: rgba(10, 10, 10, 0.2);
   --radius: 0.125rem;
-  
+
   /* Luxury Metallic Accents */
-  --gold: #D4AF37;
+  --gold: #4b7894;
   --platinum: #E5E4E2;
   --chrome: #C9C9C9;
   --neon-blue: #00D9FF;
   --neon-violet: #A855F7;
-  
+
   /* Spacing (Generous) */
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
@@ -60,7 +60,7 @@
   --secondary-foreground: #FAFAF8;
   --muted: #1A1A1A;
   --muted-foreground: #A8A8A8;
-  --accent: #D4AF37;
+  --accent: #4b7894;
   --accent-foreground: #0A0A0A;
   --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: oklch(0.637 0.237 25.331);
@@ -93,7 +93,7 @@
   --radius-md: var(--radius);
   --radius-lg: calc(var(--radius) + 2px);
   --radius-xl: calc(var(--radius) + 4px);
-  
+
   /* Custom Luxury Colors */
   --color-gold: var(--gold);
   --color-platinum: var(--platinum);
@@ -126,17 +126,6 @@
     z-index: 1;
     pointer-events: none;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  }
-
-  /* Hide default cursor on desktop for custom cursor */
-  @media (min-width: 1024px) {
-    body {
-      cursor: none;
-    }
-    
-    a, button {
-      cursor: none;
-    }
   }
 
   /* RTL Support */
@@ -223,9 +212,12 @@
 
 /* Luxury Animation Utilities */
 @keyframes glow-pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.4;
   }
+
   50% {
     opacity: 0.8;
   }
@@ -236,6 +228,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -246,6 +239,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -255,6 +249,7 @@
   0% {
     background-position: -1000px 0;
   }
+
   100% {
     background-position: 1000px 0;
   }
@@ -262,20 +257,16 @@
 
 /* Luxury Gradient Backgrounds */
 .luxury-gradient {
-  background: linear-gradient(
-    135deg,
-    var(--background) 0%,
-    var(--secondary) 100%
-  );
+  background: linear-gradient(135deg,
+      var(--background) 0%,
+      var(--secondary) 100%);
 }
 
 .metallic-shine {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(212, 175, 55, 0.1),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(212, 175, 55, 0.1),
+      transparent);
   background-size: 200% 100%;
   animation: shimmer 3s infinite;
 }

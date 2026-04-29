@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
+import logo from '@/assets/storm_logo.png';
 
 export function PageLoader() {
   const [isLoading, setIsLoading] = useState(true);
@@ -30,7 +31,7 @@ export function PageLoader() {
               transition={{ duration: 0.6 }}
               className="text-center"
             >
-              <motion.h1
+              {/* <motion.h1
                 className="text-5xl lg:text-7xl font-bold mb-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -52,7 +53,10 @@ export function PageLoader() {
                   ⚡
                 </motion.span>
                 Apps
-              </motion.h1>
+              </motion.h1> */}
+
+              <img src={logo} alt="Storm Apps" width={160} height={100} className="w-[160px] h-[100px] object-contain" />
+
 
               {/* Loading Bar */}
               <div className="w-48 h-1 mx-auto bg-secondary rounded-full overflow-hidden">
