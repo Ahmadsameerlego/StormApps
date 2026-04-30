@@ -6,8 +6,9 @@ import { ArrowUpRight, ArrowRight } from 'lucide-react';
 import { projectsData } from '../../data/projects';
 import { useNavigate } from 'react-router';
 
-function ImageSlider({ images }: { images: string[] }) {
+function ImageSlider({ images, category }: { images: string[], category?: string }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const isApp = category === 'app';
 
   useEffect(() => {
     if (!images || images.length <= 1) return;
@@ -20,7 +21,17 @@ function ImageSlider({ images }: { images: string[] }) {
   if (!images || images.length === 0) return null;
 
   return (
-    <div className="absolute inset-0 overflow-hidden bg-background">
+    <div className="absolute inset-0 overflow-hidden bg-secondary/10">
+      {isApp && (
+        <div 
+          className="absolute inset-0 blur-2xl opacity-20 scale-110"
+          style={{ 
+            backgroundImage: `url(${images[currentIndex]})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        />
+      )}
       <AnimatePresence>
         <motion.div
           key={currentIndex}
@@ -33,8 +44,9 @@ function ImageSlider({ images }: { images: string[] }) {
             backgroundImage: images[currentIndex].startsWith('linear-gradient') || images[currentIndex].startsWith('radial-gradient')
               ? images[currentIndex] 
               : `url(${images[currentIndex]})`,
-            backgroundSize: 'cover',
+            backgroundSize: isApp ? 'contain' : 'cover',
             backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
           }}
         />
       </AnimatePresence>
@@ -97,7 +109,7 @@ export function ProjectsSection() {
                 >
                   <div className="relative aspect-[16/10] rounded-2xl overflow-hidden border border-border">
                     {/* Image Slider */}
-                    <ImageSlider images={project.images} />
+                    <ImageSlider images={project.images} category={project.category} />
                     
                     {/* Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -107,18 +119,16 @@ export function ProjectsSection() {
                       className="absolute inset-0 bg-gradient-to-br from-[var(--color-accent)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                     />
 
-                    {/* View Project Button on Hover */}
-                    <motion.a
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    {/* View Case Study Button on Hover */}
+                    <button
+                      onClick={() => navigate(`/projects/${project.key}`)}
+                      className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 cursor-pointer"
                     >
                       <div className="px-8 py-4 rounded-full bg-background/90 backdrop-blur-sm border border-border flex items-center gap-3 font-medium">
-                        <span>View Project</span>
-                        <ArrowUpRight className="w-5 h-5" />
+                        <span>{t('projects.exploreCaseStudy') || 'Explore Case Study'}</span>
+                        <ArrowRight className="w-5 h-5" />
                       </div>
-                    </motion.a>
+                    </button>
                   </div>
 
                   {/* Glow Effect */}
@@ -183,11 +193,11 @@ export function ProjectsSection() {
                     animate={isInView ? { opacity: 1, x: 0 } : {}}
                     transition={{ duration: 0.8, delay: 0.6 + index * 0.2 }}
                     whileHover={{ x: 5 }}
-                    onClick={() => window.open(project.url, '_blank')}
+                    onClick={() => navigate(`/projects/${project.key}`)}
                     className="group/btn inline-flex items-center gap-2 text-[var(--color-accent)] font-medium pt-4"
                   >
-                    <span>Explore Case Study</span>
-                    <ArrowUpRight className="w-5 h-5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-300" />
+                    <span>{t('projects.exploreCaseStudy') || 'Explore Case Study'}</span>
+                    <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform duration-300" />
                   </motion.button>
                 </div>
               </div>

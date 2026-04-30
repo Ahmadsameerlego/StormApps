@@ -11,39 +11,25 @@ export function Footer() {
   const socialLinks = [
     { icon: Linkedin, href: 'https://www.linkedin.com/company/storm-apps/', label: 'LinkedIn' },
     { icon: Instagram, href: 'https://www.instagram.com/stoormapps/', label: 'Instagram' },
-    { icon: Facebook, href: 'https://www.snapchat.com/@storm-apps', label: 'Twitter' },
-    // { icon: TikTok, href: 'https://www.tiktok.com/@stormapps', label: 'Twitter' },
-    { icon: X, href: 'https://www.snapchat.com/@storm-apps', label: 'Twitter' },
-
-    { icon: Youtube, href: 'https://www.youtube.com/@StormApps2030', label: 'Twitter' },
+    { icon: Facebook, href: 'https://www.facebook.com/stoormapps', label: 'Facebook' },
+    { icon: X, href: 'https://x.com/stoormapps', label: 'X' },
+    { icon: Youtube, href: 'https://www.youtube.com/@StormApps2030', label: 'YouTube' },
   ];
 
   const location = useLocation();
   const navigate = useNavigate();
 
-  const handleLinkClick = (id: string) => {
-    if (id === 'projects_page') {
-      navigate('/projects');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
-
-    if (location.pathname !== '/') {
-      navigate(`/#${id}`);
-    } else {
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
+  const handleLinkClick = (path: string) => {
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const quickLinks = [
-    { id: 'services', label: t('nav.services') },
-    { id: 'projects', label: t('nav.projects') },
-    { id: 'projects_page', label: t('nav.allProjects') },
-    { id: 'process', label: t('nav.process') },
-    { id: 'about', label: t('nav.about') },
+    { id: 'home', label: t('nav.home'), path: '/' },
+    { id: 'services', label: t('nav.services'), path: '/services' },
+    { id: 'projects', label: t('nav.projects'), path: '/projects' },
+    { id: 'about', label: t('nav.about'), path: '/about' },
+    { id: 'contact', label: t('nav.contact'), path: '/contact' },
   ];
 
   return (
@@ -116,7 +102,7 @@ export function Footer() {
                 {quickLinks.map((item) => (
                   <li key={item.id}>
                     <button
-                      onClick={() => handleLinkClick(item.id)}
+                      onClick={() => handleLinkClick(item.path)}
                       className="text-muted-foreground hover:text-[var(--color-accent)] transition-colors duration-300 text-left"
                     >
                       {item.label}

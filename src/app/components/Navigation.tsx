@@ -37,32 +37,19 @@ export function Navigation() {
     }
   }, [location]);
 
-  const handleNavClick = (id: string) => {
-    setMobileMenuOpen(false);
-    
-    if (id === 'projects_page') {
-      navigate('/projects');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
-
-    if (location.pathname !== '/') {
-      navigate(`/#${id}`);
-    } else {
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-  };
-
   const navItems = [
-    { id: 'services', label: t('nav.services') },
-    { id: 'projects', label: t('nav.projects') },
-    { id: 'projects_page', label: t('nav.allProjects') },
-    { id: 'process', label: t('nav.process') },
-    { id: 'about', label: t('nav.about') },
+    { id: 'home', label: t('nav.home'), path: '/' },
+    { id: 'services', label: t('nav.services'), path: '/services' },
+    { id: 'projects', label: t('nav.projects'), path: '/projects' },
+    { id: 'about', label: t('nav.about'), path: '/about' },
+    { id: 'contact', label: t('nav.contact'), path: '/contact' },
   ];
+
+  const handleNavClick = (path: string) => {
+    setMobileMenuOpen(false);
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <motion.nav
@@ -105,7 +92,7 @@ export function Navigation() {
             {navItems.map((item, index) => (
               <motion.button
                 key={item.id}
-                onClick={() => handleNavClick(item.id)}
+                onClick={() => handleNavClick(item.path)}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
@@ -160,7 +147,7 @@ export function Navigation() {
 
             {/* CTA Button */}
             <motion.button
-              onClick={() => handleNavClick('contact')}
+              onClick={() => handleNavClick('/contact')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="hidden lg:block px-6 py-2.5 rounded-full bg-[var(--color-accent)] text-[var(--color-accent-foreground)] font-medium text-sm hover:shadow-lg hover:shadow-[var(--color-accent)]/20 transition-all duration-300"
@@ -198,7 +185,7 @@ export function Navigation() {
               {navItems.map((item) => (
                 <motion.button
                   key={item.id}
-                  onClick={() => handleNavClick(item.id)}
+                  onClick={() => handleNavClick(item.path)}
                   whileTap={{ scale: 0.98 }}
                   className="block w-full text-left py-3 px-4 rounded-lg hover:bg-secondary transition-colors duration-300"
                 >
@@ -206,7 +193,7 @@ export function Navigation() {
                 </motion.button>
               ))}
               <motion.button
-                onClick={() => handleNavClick('contact')}
+                onClick={() => handleNavClick('/contact')}
                 whileTap={{ scale: 0.98 }}
                 className="block w-full py-3 px-4 rounded-lg bg-[var(--color-accent)] text-[var(--color-accent-foreground)] font-medium text-center"
               >

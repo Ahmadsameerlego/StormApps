@@ -7,6 +7,11 @@ import { CustomCursor } from './components/CustomCursor';
 import { Routes, Route } from 'react-router';
 import { HomePage } from './pages/HomePage';
 import { ProjectsPage } from './pages/ProjectsPage';
+import { ProjectCaseStudyPage } from './pages/ProjectCaseStudyPage';
+import { ServicesPage } from './pages/ServicesPage';
+import { ServiceDetailPage } from './pages/ServiceDetailPage';
+import { AboutPage } from './pages/AboutPage';
+import { ContactPage } from './pages/ContactPage';
 
 export default function App() {
   return (
@@ -28,7 +33,12 @@ export default function App() {
           <main id="main-content" className="flex-1">
             <Routes>
               <Route path="/" element={<HomePage />} />
+              <Route path="/services" element={<ServicesPage />} />
+              <Route path="/services/:id" element={<ServiceDetailPage />} />
               <Route path="/projects" element={<ProjectsPage />} />
+              <Route path="/projects/:id" element={<ProjectCaseStudyPage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/contact" element={<ContactPage />} />
             </Routes>
           </main>
 

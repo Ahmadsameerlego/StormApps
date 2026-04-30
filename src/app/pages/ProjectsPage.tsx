@@ -1,16 +1,28 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useNavigate } from 'react-router';
 import { useLanguage } from '../contexts/LanguageContext';
 import { projectsData, ProjectCategory, Project } from '../../data/projects';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, ArrowRight } from 'lucide-react';
 
-function ImageSlider({ images }: { images: string[] }) {
+function ImageSlider({ images, category }: { images: string[], category?: string }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const isApp = category === 'app';
 
   if (!images || images.length === 0) return null;
 
   return (
-    <div className="absolute inset-0 overflow-hidden bg-background">
+    <div className="absolute inset-0 overflow-hidden bg-secondary/10">
+      {isApp && (
+        <div 
+          className="absolute inset-0 blur-2xl opacity-20 scale-110"
+          style={{ 
+            backgroundImage: `url(${images[currentIndex]})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        />
+      )}
       <AnimatePresence mode="sync">
         <motion.div
           key={currentIndex}
@@ -23,8 +35,9 @@ function ImageSlider({ images }: { images: string[] }) {
             backgroundImage: images[currentIndex].startsWith('linear-gradient') || images[currentIndex].startsWith('radial-gradient')
               ? images[currentIndex] 
               : `url(${images[currentIndex]})`,
-            backgroundSize: 'cover',
+            backgroundSize: isApp ? 'contain' : 'cover',
             backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
           }}
         />
       </AnimatePresence>
@@ -34,6 +47,7 @@ function ImageSlider({ images }: { images: string[] }) {
 
 export function ProjectsPage() {
   const { t } = useLanguage();
+  const navigate = useNavigate();
   const [activeFilter, setActiveFilter] = useState<ProjectCategory>('all');
 
   const filters: { id: ProjectCategory; label: string }[] = [
@@ -106,22 +120,20 @@ export function ProjectsPage() {
               >
                 {/* Project Image */}
                 <div className="relative aspect-[16/10] overflow-hidden">
-                  <ImageSlider images={project.images} />
+                  <ImageSlider images={project.images} category={project.category} />
                   
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
-                  <motion.a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  <button
+                    onClick={() => navigate(`/projects/${project.key}`)}
+                    className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 cursor-pointer"
                   >
-                    <div className="px-6 py-3 rounded-full bg-background/90 backdrop-blur-sm border border-border flex items-center gap-2 font-medium">
-                      <span>View Project</span>
-                      <ArrowUpRight className="w-4 h-4" />
+                    <div className="px-6 py-3 rounded-full bg-background/90 backdrop-blur-sm border border-border flex items-center gap-2 font-medium text-foreground">
+                      <span>{t('projects.exploreCaseStudy')}</span>
+                      <ArrowRight className="w-4 h-4" />
                     </div>
-                  </motion.a>
+                  </button>
                 </div>
 
                 {/* Project Info */}
