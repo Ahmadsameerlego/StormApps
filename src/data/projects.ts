@@ -57,6 +57,11 @@ import n16 from "@/assets/n6.webp";
 import n17 from "@/assets/n7.webp";
 import n18 from "@/assets/n8.webp";
 
+
+import b1 from "@/assets/b1.jpeg"
+import b2 from "@/assets/b2.jpeg"
+import b3 from "@/assets/b3.jpeg"
+import b4 from "@/assets/b4.jpeg"
 export type ProjectCategory = 'all' | 'ecommerce' | 'web' | 'crm' | 'portfolio' | 'app';
 
 export type Project = {
@@ -149,6 +154,14 @@ export const projectsData: Project[] = [
     url : 'https://www.heliid.com/',
     technologies : ['Vue.js', 'Laravel', 'Tailwind', "mysql"],
     category : 'web',
+  },
+  {
+    key : '11',
+    gradient : 'from-[var(--color-gold)] to-[var(--color-neon-blue)]',
+    images : [b1, b2, b3, b4],
+    url : 'https://mrelbeltagy.com/',
+    technologies : ['React', 'Tailwind', 'TypeScript', "shadcn/ui", "mysql", "Laravel" , "ios" , "android"],
+    category : 'app',
   },
   
 ];

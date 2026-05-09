@@ -206,6 +206,16 @@ const translations = {
     'projects.10.timeline': "6 Months",
     'projects.10.client': "Noor Alwahdah",
 
+    'projects.11.title': "Elbeltagy",
+    'projects.11.category': "تطبيق جوال",
+    'projects.11.description': "منصه تعليميه متكامله لعرض الكورسات والدروس والامتحانات والكويزات بشكل تفاعلي ",
+    'projects.11.challenge': "التحدي الرئيسي تمثل في إنشاء بيئة تعليمية تفاعلية وجذابة تدعم مختلف أنواع المحتوى التعليمي، مع توفير أدوات تقييم فعالة ونظام تتبع تقدم شامل للطلاب. بالإضافة إلى ضمان تجربة سلسة وموثوقة عبر مختلف الأجهزة، مع الحفاظ على الأمان والخصوصية لبيانات المستخدمين.",
+    'projects.11.solution': "تم تطوير تطبيق جوال باستخدام Flutter بواجهة مستخدم حديثة وجذابة، تدعم عرض مختلف أنواع المحتوى التعليمي مثل الفيديوهات، الكتب، الكويزات، والملخصات. تم دمج نظام إدارة محتوى متقدم يسمح للمدرسين بإضافة وتعديل المحتوى بسهولة، ونظام تتبع تقدم تفاعلي يتيح للطلاب متابعة تقدمهم في كل مادة، مع توفير إشعارات فورية وتذكيرات للمهام والامتحانات.",
+    'projects.11.results': "تم إطلاق منصة نور الوحدة بنجاح بواجهة حديثة وسهلة الاستخدام تتيح للعملاء تصفح وحجز السيارات بسهولة. تلقت المنصة ردود فعل إيجابية لسرعتها واستجابتها وسهولة استخدامها.",
+    'projects.11.role': "تطبيق جوال، تصميم UI/UX",
+    'projects.11.timeline': "6 Months",
+    'projects.11.client': "Noor Alwahdah",
+
     'projects.showAll': 'عرض كل المشاريع',
     'projects.filter.all': 'الكل',
     'projects.filter.ecommerce': 'تجارة إلكترونية',
@@ -442,6 +452,16 @@ const translations = {
     'projects.10.role': "App Platform, UI/UX Design",
     'projects.10.timeline': "6 Months",
     'projects.10.client': "Noor Alwahdah",
+
+    'projects.11.title': "Elbeltagy",
+    'projects.11.category': "App Platform",
+    'projects.11.description': "Elbeltagy is an integrated educational platform designed to showcase courses, lessons, exams, and quizzes in an interactive and engaging manner.",
+    'projects.11.challenge': "The main challenge was to create an interactive and engaging educational environment that supports various types of educational content, with effective assessment tools and a comprehensive progress tracking system for students. Additionally, ensuring a seamless and reliable experience across different devices while maintaining the security and privacy of user data.",
+    'projects.11.solution': "We developed a mobile application using Flutter with a modern and attractive user interface that supports the display of various types of educational content such as videos, books, quizzes, and summaries. An advanced content management system was integrated, allowing teachers to easily add and edit content, and an interactive progress tracking system enables students to monitor their progress in each subject, with immediate notifications and reminders for assignments and exams.",
+    'projects.11.results': "The Elbeltagy platform was successfully launched with a modern, user-friendly interface that allows students to easily browse and access educational content. The platform has received positive feedback for its engaging interface, comprehensive content, and effective progress tracking system.",
+    'projects.11.role': "Mobile App, UI/UX Design",
+    'projects.11.timeline': "6 Months",
+    'projects.11.client': "Elbeltagy",
 
     'projects.showAll': 'Show All Projects',
     'projects.filter.all': 'All',
