@@ -23,7 +23,7 @@ const translations = {
 
     // About
     'about.hero.title': 'نحن نصنع المستقبل الرقمي',
-    'about.hero.subtitle': 'قصة Storm Apps هي قصة شغف بالإبداع والتميز التقني.',
+    'about.hero.subtitle': 'قصة Arrow Tech هي قصة شغف بالإبداع والتميز التقني.',
     'about.mission.title': 'رسالتنا',
     'about.mission.desc': 'تمكين الشركات من خلال التكنولوجيا المبتكرة والتصاميم الاستثنائية التي تخلق قيمة حقيقية.',
     'about.vision.title': 'رؤيتنا',
@@ -241,7 +241,7 @@ const translations = {
     // About
     'about.title': 'فلسفتنا',
     'about.quote': 'نحن لا نتبع الاتجاهات. نحن نصنعها.',
-    'about.text1': 'Storm Apps ليست مجرد شركة برمجيات. نحن مختبر للابتكار، استوديو للإبداع، وشريك لمن يطمح للمستحيل.',
+    'about.text1': 'Arrow Tech ليست مجرد شركة برمجيات. نحن مختبر للابتكار، استوديو للإبداع، وشريك لمن يطمح للمستحيل.',
     'about.text2': 'نجمع بين الهندسة المعمارية الرقمية الفائقة، التصميم الذي يلهم، والتكنولوجيا التي تغير قواعد اللعبة.',
     'about.text3': 'كل مشروع هو تحفة فنية. كل تطبيق قصة نجاح. نحن لا نعمل مع الجميع، فقط مع من يشاركنا شغف التميز.',
 
@@ -258,7 +258,7 @@ const translations = {
     // Footer
     'footer.tagline': 'نصنع العواصف الرقمية',
     'footer.rights': 'جميع الحقوق محفوظة',
-    'footer.email': 'emad@stoormapps.com',
+    'footer.email': 'arroowtech@gmail.com',
   },
   en: {
     // Navigation
@@ -270,7 +270,7 @@ const translations = {
 
     // About
     'about.hero.title': 'We Craft the Digital Future',
-    'about.hero.subtitle': 'The story of Storm Apps is a story of passion for creativity and technical excellence.',
+    'about.hero.subtitle': 'The story of Arrow Tech is a story of passion for creativity and technical excellence.',
     'about.mission.title': 'Our Mission',
     'about.mission.desc': 'Empowering companies through innovative technology and exceptional designs that create real value.',
     'about.vision.title': 'Our Vision',
@@ -488,7 +488,7 @@ const translations = {
     // About
     'about.title': 'Our Philosophy',
     'about.quote': 'We don\'t follow trends. We create them.',
-    'about.text1': 'Storm Apps is not just a software company. We are an innovation lab, a creativity studio, and a partner for those who aspire to the impossible.',
+    'about.text1': 'Arrow Tech is not just a software company. We are an innovation lab, a creativity studio, and a partner for those who aspire to the impossible.',
     'about.text2': 'We combine supreme digital architecture, inspiring design, and game-changing technology.',
     'about.text3': 'Every project is a masterpiece. Every application is a success story. We don\'t work with everyone, only with those who share our passion for excellence.',
 
@@ -505,7 +505,7 @@ const translations = {
     // Footer
     'footer.tagline': 'We craft digital storms',
     'footer.rights': 'All rights reserved',
-    'footer.email': 'emad@stoormapps.com',
+    'footer.email': 'arroowtech@gmail.com',
   }
 };
 

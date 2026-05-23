@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
-import logo from '@/assets/storm_logo.png';
+import arrowLogo from '../images/arrow.png';
 
 export function PageLoader() {
   const [isLoading, setIsLoading] = useState(true);
@@ -55,7 +55,7 @@ export function PageLoader() {
                 Apps
               </motion.h1> */}
 
-              <img src={logo} alt="Storm Apps" width={160} height={100} className="w-[160px] h-[100px] object-contain" />
+              <img src={arrowLogo} alt="ARROW TECH" width={160} height={100} className="w-[160px] h-[100px] object-contain" />
 
 
               {/* Loading Bar */}

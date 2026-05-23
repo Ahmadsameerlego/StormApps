@@ -4,7 +4,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { useTheme } from '../contexts/ThemeContext';
 import { Sun, Moon, Menu, X } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router';
-import logo from '@/assets/storm_logo.png';
+import arrowLogo from '../images/arrow.png';
 
 
 export function Navigation() {
@@ -84,7 +84,7 @@ export function Navigation() {
                 initial={false}
               />
             </h1> */}
-            <img src={logo} alt="Storm Apps" width={180} height={180} className="w-[180px] h-[180px] object-contain" />
+            <img src={arrowLogo} alt="ARROW TECH" width={180} height={180} className="w-[180px] h-[180px] object-contain" />
           </motion.button>
 
           {/* Desktop Navigation */}

@@ -1,7 +1,7 @@
 
-  # Luxury Website Design for Storm Apps
+  # Luxury Website Design for Arrow Tech
 
-  This is a code bundle for Luxury Website Design for Storm Apps. The original project is available at https://www.figma.com/design/mg8WFzrhPWYKBWxPiIerIy/Luxury-Website-Design-for-Storm-Apps.
+  This is a code bundle for Luxury Website Design for Arrow Tech. The original project is available at https://www.figma.com/design/mg8WFzrhPWYKBWxPiIerIy/Luxury-Website-Design-for-Storm-Apps.
 
   ## Running the code
 

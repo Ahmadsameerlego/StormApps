@@ -77,9 +77,9 @@ export function ContactPage() {
             <div className="grid sm:grid-cols-2 gap-8">
               {[
                 { icon: Mail, label: t('contact.info.email'), val: t('footer.email') },
-                { icon: Phone, label: t('contact.info.phone'), val: '201027000084+' },
+                { icon: Phone, label: t('contact.info.phone'), val: '201013746111+' },
                 { icon: MapPin, label: t('contact.info.address'), val: t('contact.info.address.val') },
-                { icon: Instagram, label: t('contact.social.title'), val: '@stormapps', isSocial: true }
+                { icon: Instagram, label: t('contact.social.title'), val: '@Arrow Tech', isSocial: true }
               ].map((info, i) => (
                 <div key={i} className="p-8 rounded-3xl bg-card border border-border space-y-4">
                   <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-[var(--color-accent)]/10 text-[var(--color-accent)]">

@@ -1,8 +1,8 @@
-# Storm Apps - Ultra-Premium Luxury Website
+# Arrow Tech - Ultra-Premium Luxury Website
 
 ## 🌟 Overview
 
-An exclusive, high-end website for Storm Apps that positions the brand as an elite digital partner. This is not a typical tech website—it's a luxury brand experience in the world of technology.
+An exclusive, high-end website for Arrow Tech that positions the brand as an elite digital partner. This is not a typical tech website—it's a luxury brand experience in the world of technology.
 
 ## ✨ Design Philosophy
 
@@ -190,7 +190,7 @@ Toggle between languages with the nav button.
 
 ## 🎨 Brand Identity
 
-**Storm Apps** represents the perfect storm of:
+**Arrow Tech** represents the perfect storm of:
 - Digital architecture excellence
 - Inspiring design
 - Game-changing technology
@@ -200,7 +200,7 @@ Toggle between languages with the nav button.
 
 **Tagline**: "We craft digital storms"
 
-**Email**: emad@stoormapps.com
+**Email**: arroowtech@gmail.com
 
 ## 🔧 Technical Stack
 
@@ -222,4 +222,4 @@ Toggle between languages with the nav button.
 
 ---
 
-**Built with ⚡ by Storm Apps**
+**Built with ⚡ by Arrow Tech**

@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Mail, Linkedin, Instagram, Facebook, X, Youtube } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router';
-import logo from '@/assets/storm_logo.png';
+import arrowLogo from '../images/arrow.png';
 
 export function Footer() {
   const { t } = useLanguage();
@@ -13,7 +13,7 @@ export function Footer() {
     { icon: Instagram, href: 'https://www.instagram.com/stoormapps/', label: 'Instagram' },
     { icon: Facebook, href: 'https://www.facebook.com/stoormapps', label: 'Facebook' },
     { icon: X, href: 'https://x.com/stoormapps', label: 'X' },
-    { icon: Youtube, href: 'https://www.youtube.com/@StormApps2030', label: 'YouTube' },
+    { icon: Youtube, href: 'https://www.youtube.com/@Arrow Tech2030', label: 'YouTube' },
   ];
 
   const location = useLocation();
@@ -66,7 +66,7 @@ export function Footer() {
                 Apps
               </h3> */}
 
-              <img src={logo} alt="Storm Apps" width={160} height={100} className="w-[160px] h-[100px] object-contain" />
+              <img src={arrowLogo} alt="ARROW TECH" width={160} height={100} className="w-[160px] h-[100px] object-contain" />
 
 
               <p className="text-muted-foreground text-lg mb-8 max-w-md leading-relaxed">
@@ -76,7 +76,7 @@ export function Footer() {
               {/* Contact */}
               <div className="space-y-4">
                 <a
-                  href="mailto:emad@stoormapps.com"
+                  href="mailto:arroowtech@gmail.com"
                   className="group inline-flex items-center gap-3 text-muted-foreground hover:text-[var(--color-accent)] transition-colors duration-300"
                 >
                   <Mail className="w-5 h-5" />
@@ -184,7 +184,7 @@ export function Footer() {
         >
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <p className="text-sm text-muted-foreground text-center md:text-left">
-              © {currentYear} Storm Apps. {t('footer.rights')}.
+              © {currentYear} Arrow Tech. {t('footer.rights')}.
             </p>
 
             <motion.div
@@ -215,7 +215,7 @@ export function Footer() {
                 ⚡
               </motion.span>
               <span className="text-sm text-muted-foreground">
-                by Storm Apps
+                by ARROW TECH
               </span>
             </motion.div>
           </div>
